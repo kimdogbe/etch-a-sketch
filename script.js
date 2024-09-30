@@ -13,6 +13,7 @@ function resetCanvas(gridSize) {
     for (let j = 0; j < gridSize; j++){
       let childDiv = document.createElement("div");
       childDiv.style.backgroundColor = "pink";
+      childDiv.style.opacity = 1;
       childDiv.classList.add("gridDiv");
   
       childRow.appendChild(childDiv);
@@ -26,9 +27,21 @@ function resetCanvas(gridSize) {
 
 addEventListener("mouseover", (event) => {
   if (event.target.className == 'gridDiv'){
-    event.target.style.backgroundColor = 'red';
+    let currentOpacity = Number(event.target.style.opacity)
+    event.target.style.backgroundColor = colorRandomizer3000();
+    event.target.style.opacity = "" + currentOpacity - 0.1;
+
   }
 });
+
+function colorRandomizer3000() {
+  let letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
 
 const settingsBtn = document.createElement("button");
 settingsBtn.innerText = "Set grid size";

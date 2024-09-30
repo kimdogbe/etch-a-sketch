@@ -12,6 +12,7 @@
 
 .childRow {
   display: flex;
+  background-color: black;
 }
 
 .gridDiv {
