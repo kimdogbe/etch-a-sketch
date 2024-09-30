@@ -12,7 +12,6 @@ function resetCanvas(gridSize) {
   
     for (let j = 0; j < gridSize; j++){
       let childDiv = document.createElement("div");
-      // childDiv.style.border = "1px solid black";
       childDiv.style.backgroundColor = "pink";
       childDiv.classList.add("gridDiv");
   
@@ -26,7 +25,9 @@ function resetCanvas(gridSize) {
 }
 
 addEventListener("mouseover", (event) => {
-  event.target.style.backgroundColor = 'red';
+  if (event.target.className == 'gridDiv'){
+    event.target.style.backgroundColor = 'red';
+  }
 });
 
 const settingsBtn = document.createElement("button");
